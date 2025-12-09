@@ -33,12 +33,12 @@ CORS_ALLOW_CREDENTIALS = True
 
 # CORS Configuration
 CORS_ALLOWED_ORIGINS = [
+    "https://frontend-murex-three-pcxlwgrvtk.vercel.app",
     "http://localhost:3000",
     "http://localhost:8000",
     "http://127.0.0.1:3000",
     "http://127.0.0.1:8000",
     # Reemplaza con tu dominio en Vercel
-    "https://frontend-murex-three-pcxlwgrvtk.vercel.app",
 ]
 
 CSRF_TRUSTED_ORIGINS = [

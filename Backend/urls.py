@@ -20,8 +20,8 @@ from habitos.views import HabitoViewSet, UsuarioViewSet
 from rest_framework.routers import DefaultRouter
 
 router= DefaultRouter()
-router.register(r'habitos', HabitoViewSet, basename= 'habito')
-router.register(r'usuarios', UsuarioViewSet, basename='usuario')
+router.register(r'habitos', HabitoViewSet, basename= 'habitos')
+router.register(r'usuarios', UsuarioViewSet, basename='usuarios')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
