@@ -35,7 +35,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
     "http://127.0.0.1:8000",
     # Reemplaza con tu dominio en Vercel
-    "https://frontend-murex-three-pcxlwgrvtk.vercel.app/",
+    "https://frontend-murex-three-pcxlwgrvtk.vercel.app",
 ]
 
 # Permitir credenciales en solicitudes CORS
@@ -153,5 +153,6 @@ SIMPLE_JWT= {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=15),
     'REFRESH_TOKEN_LIFETIME': timedelta(hours=5),
     'ROTATE_REFRESH_TOKENS': True,
+
 
 }
