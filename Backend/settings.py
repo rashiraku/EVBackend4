@@ -26,7 +26,20 @@ SECRET_KEY = 'django-insecure-+@q5yv6vw1+&9hzzj@489o!iq-nhyfd3ffy+j6-gb#e6f%psb5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
+
+# CORS Configuration
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://localhost:8000",
+    "http://127.0.0.1:3000",
+    "http://127.0.0.1:8000",
+    # Reemplaza con tu dominio en Vercel
+    "https://frontend-murex-three-pcxlwgrvtk.vercel.app/",
+]
+
+# Permitir credenciales en solicitudes CORS
+CORS_ALLOW_CREDENTIALS = True
 
 
 # Application definition
@@ -38,12 +51,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'rest_framework',
     'habitos',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
