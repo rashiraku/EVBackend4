@@ -28,6 +28,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
+# Permitir credenciales en solicitudes CORS
+CORS_ALLOW_CREDENTIALS = True
+
 # CORS Configuration
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
@@ -38,8 +41,13 @@ CORS_ALLOWED_ORIGINS = [
     "https://frontend-murex-three-pcxlwgrvtk.vercel.app",
 ]
 
-# Permitir credenciales en solicitudes CORS
-CORS_ALLOW_CREDENTIALS = True
+CSRF_TRUSTED_ORIGINS = [
+    "https://frontend-murex-three-pcxlwgrvtk.vercel.app",
+]
+
+
+
+
 
 
 # Application definition
