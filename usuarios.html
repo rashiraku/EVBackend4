@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Usuarios</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .color1 { color: #e74c3c; }
+        .color2 { color: #3498db; }
+        .color3 { color: #2ecc71; }
+        .color4 { color: #f39c12; }
+        .color5 { color: #9b59b6; }
+        .color6 { color: #1abc9c; }
+        .color7 { color: #e67e22; }
+        .color8 { color: #34495e; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Usuarios</h1>
+        <ul id="userList"></ul>
+    </div>
+
+    <script>
+        const usuarios = [
+            { nombre: "Carlos García", color: "color1" },
+            { nombre: "María López", color: "color2" },
+            { nombre: "Juan Martínez", color: "color3" },
+            { nombre: "Ana Rodríguez", color: "color4" },
+            { nombre: "Pedro Sánchez", color: "color5" },
+            { nombre: "Laura Fernández", color: "color6" },
+            { nombre: "Diego Torres", color: "color7" },
+            { nombre: "Sofía Ramírez", color: "color8" }
+        ];
+
+        function shuffleArray(array) {
+            const newArray = [...array];
+            for (let i = newArray.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+            }
+            return newArray;
+        }
+
+        function renderList(users) {
+            const userList = document.getElementById('userList');
+            userList.innerHTML = '';
+            users.forEach(user => {
+                const li = document.createElement('li');
+                li.textContent = user.nombre;
+                li.className = user.color;
+                userList.appendChild(li);
+            });
+        }
+
+        // Renderizar lista inicial
+        renderList(usuarios);
+
+        // Cambiar orden cada 2 segundos durante 10 segundos (5 cambios en total)
+        let count = 0;
+        const maxChanges = 5;
+
+        const interval = setInterval(() => {
+            count++;
+            const shuffledUsers = shuffleArray(usuarios);
+            renderList(shuffledUsers);
+
+            if (count >= maxChanges) {
+                clearInterval(interval);
+                console.log('Animación completada');
+            }
+        }, 2000);
+    </script>
+</body>
+</html>
